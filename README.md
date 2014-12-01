@@ -21,9 +21,7 @@ change.
 
 1. Install 'stancer' from https://github.com/tmtmtmtm/stancer
 
-2. Produce a suitable ``issues.json`` file (see for example, [voteit-data-pw](https://github.com/tmtmtmtm/voteit-data-pw))
+2. ``MORPH_API_KEY=yourkey ruby bin/make_popolo_json.rb > tmp/motions.json``
 
-3. Rename ``env.eg`` to ``.env``, and add your Morph.io API key to it
-
-4. ``ruby bin/generate_stances.rb``
+3. ``ruby bin/generate_stances.rb``
 
