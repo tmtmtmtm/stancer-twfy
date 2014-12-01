@@ -32,7 +32,7 @@ popolo = divisions.map do |div|
     text: div['text'],
     date: div['date'],
     result: div['result'],
-    vote_events: {
+    vote_events: [
       start_date: div['datetime'],
       # counts: [], # TODO
       votes: votes.map { |v|
@@ -46,7 +46,7 @@ popolo = divisions.map do |div|
           group_id: v['party'].downcase,
         }
       }
-    }
+    ]
   }
 
 end
