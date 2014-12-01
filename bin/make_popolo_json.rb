@@ -46,7 +46,10 @@ popolo = divisions.map do |div|
             id: v['id'],
           },
           option: v['option'],
-          group_id: v['party'].downcase,
+          # TODO: make this use a Popolo source instead
+          # fix party names 
+          # ‘lab (minister)’, ‘lab (pps)’, ‘ldem (front bench)’, ‘whilst ldem’ etc.
+          group_id: v['party'].downcase.gsub(/\s?\([^\)]+\)\s?/,'').gsub(/^whilst /,'')
         }
       }
     ]
