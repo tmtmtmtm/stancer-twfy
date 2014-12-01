@@ -1,5 +1,8 @@
 #!/usr/bin/ruby
 
+# Convert PublicWhip vote data (fetched over the Morph.io API) 
+# into Popolo Vote format
+
 require 'json'
 require 'colorize'
 require 'open-uri/cached'
@@ -15,10 +18,10 @@ def morph_select(qs)
 end
 
 
-SQL_POLICIES = 'SELECT * FROM data WHERE policy = %d'
+SQL_POLICIES = 'SELECT * FROM data WHERE policy IN (363, 811)'
 SQL_POLICY_VOTES = 'SELECT * FROM votes v LEFT JOIN voters mp ON v.url = mp.url WHERE motion = "%s"'
 
-raw = morph_select(SQL_POLICIES % 363)
+raw = morph_select(SQL_POLICIES)
 divisions = JSON.parse(raw)
 
 popolo = divisions.map do |div|
