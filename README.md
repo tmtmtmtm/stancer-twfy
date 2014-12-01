@@ -23,5 +23,7 @@ change.
 
 2. Produce a suitable ``issues.json`` file (see for example, [voteit-data-pw](https://github.com/tmtmtmtm/voteit-data-pw))
 
-3. ``ruby bin/generate_stances.rb``
+3. Rename ``env.eg`` to ``.env``, and add your Morph.io API key to it
+
+4. ``ruby bin/generate_stances.rb``
 
