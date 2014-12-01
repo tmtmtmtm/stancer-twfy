@@ -18,7 +18,8 @@ def morph_select(qs)
 end
 
 
-SQL_POLICIES = 'SELECT * FROM data WHERE policy IN (363, 811)'
+# SQL_POLICIES = 'SELECT * FROM data WHERE policy IN (363, 811)'
+SQL_POLICIES = 'SELECT * FROM data'
 SQL_POLICY_VOTES = 'SELECT * FROM votes v LEFT JOIN voters mp ON v.url = mp.url WHERE motion = "%s"'
 
 raw = morph_select(SQL_POLICIES)
@@ -27,7 +28,11 @@ divisions = JSON.parse(raw)
 popolo = divisions.map do |div|
   warn "#{div['id']} = #{div['text']}".cyan
   raw_votes = morph_select(SQL_POLICY_VOTES % div['id'])
-  votes = JSON.parse(raw_votes)
+  begin
+    votes = JSON.parse(raw_votes) 
+  rescue 
+    raise "Can't parse raw_votes for #{div['id']}"
+  end
 
   motion = {
     id: div['id'],
