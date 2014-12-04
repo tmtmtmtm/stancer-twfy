@@ -21,9 +21,12 @@ change.
 
 1. Install 'stancer' from https://github.com/tmtmtmtm/stancer
 
-2. ``MORPH_API_KEY=yourkey ruby bin/make_popolo_json.rb > tmp/motions.json``
+1. Generate ``motions`` and ``issues`` source data. We currently get
+these from the Morph.io pseudo-API to PublicWhip.org.uk
 
-3. ``MORPH_API_KEY=yourkey ruby bin/make_issues_json.rb > tmp/issues.json``
+    1. ``MORPH_API_KEY=yourkey ruby bin/make_popolo_json.rb > tmp/motions.json``
 
-4. ``ruby bin/generate_stances.rb``
+    1. ``MORPH_API_KEY=yourkey ruby bin/make_issues_json.rb > tmp/issues.json``
+
+1. ``ruby bin/generate_stances.rb > tmp/stances.json``
 
