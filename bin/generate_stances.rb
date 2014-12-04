@@ -8,7 +8,7 @@ group_by = ARGV.first || 'group'
 
 stancer = Stancer.new(
   sources: { 
-    issues:  'https://raw.githubusercontent.com/tmtmtmtm/stance-viewer-sinatra/8cb8879092a211ffa3f2626c7e97aaea8897f730/data/issues.json', #FIXME
+    issues:  'tmp/issues.json',
     motions: 'tmp/motions.json',
   }
 )

@@ -23,5 +23,7 @@ change.
 
 2. ``MORPH_API_KEY=yourkey ruby bin/make_popolo_json.rb > tmp/motions.json``
 
-3. ``ruby bin/generate_stances.rb``
+3. ``MORPH_API_KEY=yourkey ruby bin/make_issues_json.rb > tmp/issues.json``
+
+4. ``ruby bin/generate_stances.rb``
 
